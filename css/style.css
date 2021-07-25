@@ -39,5 +39,7 @@ color : #C68B59
 }
 table,th,td{
     display: inline-block;
-    position:r ;
+    position:relative ;
+    top: 100px;
+    left: 150px;
 }
