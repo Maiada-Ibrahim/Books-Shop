@@ -37,9 +37,3 @@ color : #C68B59
    
     margin-left: 20px;
 }
-table,th,td{
-    display: inline-block;
-    position:relative ;
-    top: 100px;
-    left: 150px;
-}

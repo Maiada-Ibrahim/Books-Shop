@@ -22,13 +22,13 @@ function funsubmit(event) {
     bookpage = getrandompages(1, 500)
     console.log(bookpage)
     new Book(bookname, bookpage,bookprice,total)
-    rendertable()
-    renderfooter()
-    // var rowCount = tableEL.rows.length;
-    // for (var i = rowCount - 1; i > 0; i--) {
-    //     tableEL.deleteRow(i);
-    // }
-    // readlocal()
+    //rendertable()
+    //renderfooter()
+    var rowCount = tableEL.rows.length;
+    for (var i = rowCount - 1; i > 0; i--) {
+        tableEL.deleteRow(i);
+    }
+     readlocal()
     // rendertable()
     // renderfooter()
 
@@ -49,7 +49,7 @@ function Book(bookname, bookpage, bookprice, total) {
     bookarray.push(this)
     localStorage.setItem('localbook', JSON.stringify(bookarray));
 }
-console.log(bookarray)
+
 
 
 
@@ -61,16 +61,16 @@ function rendertable() {
 
         let tdbooknameEL = document.createElement('td')
     
-        tdbooknameEL.textContent = `${bookarray[0].bookname}`
+        tdbooknameEL.textContent = `${bookarray[i].bookname}`
         trEL.appendChild(tdbooknameEL)
 
         
         let tdpagenum = document.createElement('td')
-        tdpagenum.textContent = `${bookarray[0].bookpage}`
+        tdpagenum.textContent = `${bookarray[i].bookpage}`
         trEL.appendChild(tdpagenum)
         
         let tdprice = document.createElement('td')
-        tdprice.textContent = `${bookarray[0].bookprice}`
+        tdprice.textContent = `${bookarray[i].bookprice}`
         trEL.appendChild(tdprice)
         
         tbodyEL.appendChild(trEL)
@@ -99,8 +99,9 @@ function readlocal(){
         bookarray=objectlocal
         console.log(bookarray.length)
         console.log(bookarray)
-        rendertable()
-        renderfooter()
+       rendertable()
+       // renderfooter()
 
     }else{}
 }
+readlocal()
